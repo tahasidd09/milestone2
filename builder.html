@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Interactive Resume Builder</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body><!DOCTYPE html>
+    <html>
+    <head>
+    <title>Resume Builder</title>
+
+    <style>
+    body {
+      background: linear-gradient(to right, #FFFFE0, #FFFFF0);
+      font-family: sans-serif;
+    }
+    
+    .container {
+      background-color: #c4c9c8;
+      padding: 20px;
+      margin: 100px auto;
+      border-radius: 10px;
+      max-width: 600px;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    
+    button {
+      background-color: #253626;
+      color: rgb(133, 95, 95);
+      padding: 10px 20px;
+      margin: 20px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="container">
+      <h1> Resume Creater</h1>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name">
+    
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" placeholder="Enter your email">
+    
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone" placeholder="Enter your phone number">
+    
+      <label for="education">Education:</label>
+      <textarea id="education" name="education" placeholder="Enter your education details"></textarea>
+    
+      <label for="experience">Work Experience:</label>
+      <textarea id="experience" name="experience" placeholder="Enter your work experience"></textarea>
+    
+      <label for="skills">Skills:</label>
+      <textarea id="skills" name="skills" placeholder="Enter your skills"></textarea>
+    
+      <button type="button" onclick="generateResume()">Generate Resume</button>
+    </div>
+    
+    <script>
+    function generateResume() {
+      // Get user input from the form
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const education = document.getElementById('education').value;
+      const experience = document.getElementById('experience').value;
+      const skills = document.getElementById('skills').value;
+    
+      // Create the resume content
+      const resume = `
+      <h2>${name}</h2>
+      <p>Email: ${email}</p>
+      <p>Phone: ${phone}</p>
+    
+      <h3>Education</h3>
+      ${education}
+    
+      <h3>Work Experience</h3>
+      ${experience}
+    
+      <h3>Skills</h3>
+      ${skills}
+      `;
+    
+      // Display the resume in a new window
+      const newWindow = window.open('', '_blank');
+      newWindow.document.write(resume);
+      newWindow.document.close();
+    }
+    </script>
+    
+    </body>
+    </html>
+    
